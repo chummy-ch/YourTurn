@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">YourTurn</string>
+    <string name="login_button">Login</string>
+    <string name="login_short_error">Login is to short</string>
+    <string name="psw_short_error">Password is to short</string>
+</resources>
