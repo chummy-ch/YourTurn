@@ -1,5 +1,6 @@
 package com.example.yourturn.auth
 
+import com.example.yourturn.data.User
 import com.example.yourturn.data.UserResponse
 import com.example.yourturn.network.RetrofitClient
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,5 +29,19 @@ class AuthManager(private val retrofit: RetrofitClient) {
 
     fun logout() {
         _user.value = null
+    }
+
+    suspend fun getUsers(): List<User>? {
+        val response = service.getUsers()
+
+        if (response.code() == 200) {
+            return response.body()
+        } else {
+            return null
+        }
+    }
+
+    suspend fun removeUser(): Boolean {
+        return false
     }
 }

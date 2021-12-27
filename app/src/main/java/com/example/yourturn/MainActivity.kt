@@ -2,7 +2,6 @@ package com.example.yourturn
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -10,9 +9,9 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
 import com.example.yourturn.auth.AuthFragment
 import com.example.yourturn.auth.AuthManager
+import com.example.yourturn.main.MainFragment
 import com.example.yourturn.network.RetrofitClient
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             AUTH_MANAGER.user.collect { user ->
-                if (user == null) {
+                /*if (user == null) {
                     bottomNav.isVisible = false
                     supportFragmentManager.commit {
                         replace(R.id.fragment_container, AuthFragment())
@@ -45,7 +44,9 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     supportFragmentManager.popBackStack()
                     bindNavigationButton()
-                }
+                }*/
+                supportFragmentManager.popBackStack()
+                bindNavigationButton()
             }
         }
     }

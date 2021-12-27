@@ -1,5 +1,6 @@
 package com.example.yourturn.network
 
+import com.example.yourturn.data.User
 import com.example.yourturn.data.UserRegistrModel
 import com.example.yourturn.data.UserResponse
 import retrofit2.Response
@@ -15,4 +16,6 @@ interface AuthService {
    /* @POST("auth/register")
     suspend fun register(@Body user: UserRegistrModel): Unit*/
 
+    @GET("user/users")
+    suspend fun getUsers(): Response<List<User>>
 }
